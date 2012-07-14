@@ -11,6 +11,10 @@ class TestDao(collection:MongoCollection)  extends SalatDAO[Test, ObjectId](coll
   def nonDaoMethod() {
     throw new NullPointerException
   }
+
+  override def save(test: Test) = {
+  	super.save(test)
+  }
 }
 
 class TestService(dao: TestDao) {
